@@ -16,9 +16,10 @@
                     <th>Numar transe </th>
                     <th>Status Proiect </th>
                     <th>Schimbare status proiect </th>
+                    <th>Vizualizare proiect</th>
                 </tr>
                 @foreach($data as $datadb)
-                    <tr class="table-row-data">
+                    <tr class="table-row-data"></tr>
                         <td>{{ $datadb->id }}</td>
                         <td>{{ $datadb->Denumire_Proiect }}</td>
                         <td>{{ $datadb->Firma_Client }}</td>
@@ -37,9 +38,11 @@
                                     <option value="Contract semnat" {{$datadb->Status_Proiect == 'Contract semnat' ? 'selected':''}}>Contract semnat</option>
                                     <option value="Proiect finalizat" {{$datadb->Status_Proiect == 'Proiect finalizat' ? 'selected':''}}>Proiect finalizat</option>
                                 </select>
-                                <button type="submit" class="btn btn-primary">Schimbare</button>
+                                <button type="submit" class="btn btn-primary" style="margin-top:0.5rem; ">Schimbare</button>
+                                
                             </form>
                         </td>
+                        <td><button type='submit' class='btn btn-succes'><img src="{{ URL('storage/images/view48.jpg') }}" alt='view'></button></td>
                     </tr>
                 @endforeach
             </table>
