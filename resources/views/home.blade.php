@@ -42,7 +42,13 @@
                                 
                             </form>
                         </td>
-                        <td><button type='submit' class='btn btn-succes'><img src="{{ URL('storage/images/view48.jpg') }}" alt='view'></button></td>
+                        <td>
+                            <form action="{{ route('view') }}" method="POST">
+                                @csrf
+                                @method('GET')
+                            <button type='submit' class='btn btn-succes'><img src="{{ URL('storage/images/view48.jpg') }}" alt='view'></button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </table>
