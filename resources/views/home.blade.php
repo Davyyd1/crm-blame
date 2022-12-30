@@ -43,13 +43,9 @@
                             </form>
                         </td>
                         <td>
-                            <form action="{{ route('view') }}" method="POST">
-                                @csrf
-                                @method('GET')
-                            <button type='submit' class='btn btn-succes'><img src="{{ URL('storage/images/view48.jpg') }}" alt='view'></button>
-                            </form>
+                            <a href="{{ url('view/'.$datadb->id) }}"><img src="{{ URL('storage/images/view48.jpg') }}" alt='view'></a>
                         </td>
-                    </tr>
+                    </tr> 
                 @endforeach
             </table>
             {{ $data->links('pagination::bootstrap-5') }}

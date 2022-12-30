@@ -33,4 +33,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\ShowController::class, 'show']);
 // Route::post('/home', [App\Http\Controllers\ShowController::class, 'update']);
 Route::put('/home', [App\Http\Controllers\ShowController::class, 'update'])->name('update');
-Route::get('/view', [App\Http\Controllers\ViewProjController::class, 'view'])->name('view');
+Route::get('view/{id}', [App\Http\Controllers\ViewProjController::class, 'view'])->name('view');

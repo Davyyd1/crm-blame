@@ -8,7 +8,7 @@ use App\Models\Proiecte;
 class ViewProjController extends Controller
 {
     //
-    public function view(Request $request)
+    public function view($id)
     {
         return view('view');
     }
