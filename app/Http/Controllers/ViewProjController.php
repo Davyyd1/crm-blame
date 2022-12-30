@@ -10,6 +10,7 @@ class ViewProjController extends Controller
     //
     public function view($id)
     {
-        return view('view');
+        $proiecte = Proiecte::find($id);
+        return view('view', compact('proiecte'));
     }
 }

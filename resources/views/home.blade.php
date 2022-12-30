@@ -8,7 +8,7 @@
             <table class='table'>
                 <tr class="table-row-heads">
                     <th>Id</th>
-                    <th>Denumire client </th>
+                    <th>Denumire proiect </th>
                     <th>Firma client </th>
                     <th>Reprezentant firma </th>
                     <th>Contact client </th>
