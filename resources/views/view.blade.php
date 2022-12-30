@@ -9,11 +9,12 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{ url('insert-data') }}" method="POST">
+                            <form action="{{ url('view/'.$proiecte->id) }}" method="POST">
                                 {{ csrf_field() }}
+                                @method('PUT')
                                 <div class="mb-3">
-                                    <label class="form-label">Denumire Client</label>
-                                    <input type="text" class='form-control' value="{{ $proiecte->Denumire_Proiect }}" name='denumire_client' placeholder="Introduceti numele clientului">
+                                    <label class="form-label">Denumire Proiect</label>
+                                    <input type="text" class='form-control' value="{{ $proiecte->Denumire_Proiect }}" name='denumire_proiect' placeholder="Introduceti numele clientului">
                                 </div>
 
                                 <div class="mb-3">
@@ -28,24 +29,24 @@
 
                                 <div class="mb-3">
                                     <label class="form-label">Contact Client</label>
-                                    <input type="text" class='form-control' value="{{ $proiecte->Contact_Client }}" name='Contact_Client' placeholder="Introduceti contactul clientului">
+                                    <input type="text" class='form-control' value="{{ $proiecte->Contact_Client }}" name='contact_client' placeholder="Introduceti contactul clientului">
                                 </div>
 
                                 <div class="mb-3">
                                     <label class="form-label">Suma Proiect</label>
-                                    <input type="text" class='form-control' value="{{ $proiecte->Suma_Proiect }}" name='Suma_Proiect' placeholder="Introduceti suma proiectului">
+                                    <input type="text" class='form-control' value="{{ $proiecte->Suma_Proiect }}" name='suma_proiect' placeholder="Introduceti suma proiectului">
                                 </div>
 
                                 <div class="mb-3">
                                     <label class="form-label">Numar Transe</label>
-                                    <input type="text" class='form-control' value="{{ $proiecte->Numar_Transe }}" name='Numar_Transe' placeholder="introduceti numarul transelor">
+                                    <input type="text" class='form-control' value="{{ $proiecte->Numar_Transe }}" name='numar_transe' placeholder="introduceti numarul transelor">
                                 </div>
 
                                 {{-- <div class="mb-3">
                                     <label class="form-label">Status Proiect</label>
                                     <input type="text" class='form-control' name='Status_Proiect' placeholder="introduceti numarul transelor">
                                 </div> --}}
-                                <button type='submit' class='btn btn-primary'>Actualizeaza date</button>
+                                <button type='submit' class='btn btn-primary' style="float: right;">Actualizeaza date</button>
                             </form>
                         </div>
                     </div>

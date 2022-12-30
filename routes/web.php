@@ -28,9 +28,9 @@ Route::group(['prefix' => 'admin'], function () {
 
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/home', [App\Http\Controllers\ShowController::class, 'show']);
-// Route::post('/home', [App\Http\Controllers\ShowController::class, 'update']);
 Route::put('/home', [App\Http\Controllers\ShowController::class, 'update'])->name('update');
+
 Route::get('view/{id}', [App\Http\Controllers\ViewProjController::class, 'view'])->name('view');
+Route::put('view/{id}', [App\Http\Controllers\ViewProjController::class, 'updateProj'])->name('updateProj');
