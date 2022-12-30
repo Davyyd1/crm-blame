@@ -9,8 +9,11 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
+                            <div class="card-head">
+                                <h2>Proiect</h2><hr>
+                            </div>
                             <form action="{{ url('view/'.$proiecte->id) }}" method="POST">
-                                {{ csrf_field() }}
+                                @csrf
                                 @method('PUT')
                                 <div class="mb-3">
                                     <label class="form-label">Denumire Proiect</label>
@@ -48,6 +51,39 @@
                                 </div> --}}
                                 <button type='submit' class='btn btn-primary' style="float: right;">Actualizeaza date</button>
                             </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class='my-5'>
+        <div class='container'>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            @foreach ($istoric as $istProj)
+                                <div class="mb-3">
+                                    <table class='table'>
+                                        <tr class="table-row-heads">
+                                            <th>Id Proiect</th>
+                                            <th>Tip actiune </th>
+                                            <th>Colaborator </th>
+                                            <th>Suma </th>
+                                            <th>Data </th>
+                                        </tr>
+                                        <tr class="table-row-data">
+                                            <td>{{ $istProj->id_proiect }}</td>
+                                            <td>{{ $istProj->action_type }}</td>
+                                            <td>{{ $istProj->colaborator_id }}</td>
+                                            <td>{{ $istProj->suma }}</td>
+                                            <td>{{ $istProj->data }}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>

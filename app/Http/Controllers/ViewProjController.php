@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Proiecte;
+use App\Models\IstoricProiecte;
 
 class ViewProjController extends Controller
 {
@@ -11,7 +12,8 @@ class ViewProjController extends Controller
     public function view($id)
     {
         $proiecte = Proiecte::find($id);
-        return view('view', compact('proiecte'));
+        $istoric = IstoricProiecte::all();
+        return view('view', compact('proiecte', 'istoric'));
     }
 
     public function updateProj(Request $request, $id)
