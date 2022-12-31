@@ -16,7 +16,6 @@ class ViewProjController extends Controller
         $proiecte = Proiecte::find($id);
         $istoric = IstoricProiecte::all();
         $colaborator = Colaboratori::all();
-        $exists = DB::table('istoricproiecte')->where('id_proiect', '')->exists();
         return view('view', compact('proiecte', 'istoric', 'colaborator'));
     }
 
