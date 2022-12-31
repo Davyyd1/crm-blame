@@ -33,13 +33,17 @@
                                 @csrf
                                 @method('put')
                                 <input type="hidden" name="id" value="{{ $datadb->id }}" >
-                                <select name="Status_Proiect">
+                                {{-- <select name="Status_Proiect">
+                                    <option value="Proiect in lucru" {{$datadb->Status_Proiect == 'Proiect in lucru' ? 'selected':''}}>Proiect in lucru</option>
+                                    <option value="Contract semnat" {{$datadb->Status_Proiect == 'Contract semnat' ? 'selected':''}}>Contract semnat</option>
+                                    <option value="Proiect finalizat" {{$datadb->Status_Proiect == 'Proiect finalizat' ? 'selected':''}}>Proiect finalizat</option>
+                                </select> --}}
+                                <select class="form-select" aria-label="Default select example" name="Status_Proiect">
                                     <option value="Proiect in lucru" {{$datadb->Status_Proiect == 'Proiect in lucru' ? 'selected':''}}>Proiect in lucru</option>
                                     <option value="Contract semnat" {{$datadb->Status_Proiect == 'Contract semnat' ? 'selected':''}}>Contract semnat</option>
                                     <option value="Proiect finalizat" {{$datadb->Status_Proiect == 'Proiect finalizat' ? 'selected':''}}>Proiect finalizat</option>
                                 </select>
                                 <button type="submit" class="btn btn-primary" style="margin-top:0.5rem; ">Schimbare</button>
-                                
                             </form>
                         </td>
                         <td>

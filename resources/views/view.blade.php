@@ -83,6 +83,48 @@
                                         </tr>
                                     </table>
                                 </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class='my-5'>
+        <div class='container'>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                                <div class="mb-3">
+                                    <label class="form-label">Id proiect</label>
+                                    <input type="text" class='form-control' value="{{ $proiecte->id }}" name='action_type' placeholder="Action Type">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Tip actiune</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Open this select menu</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Colaborator</label>
+                                    <input type="text" class='form-control' value="{{ $istProj->colaborator_id }}" name='firma_client' placeholder="Introduceti firma clientului">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Suma</label>
+                                    <input type="text" class='form-control' value="{{ $istProj->suma }}" name='reprezentant_firma' placeholder="Introduceti numele reprezentantului">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Data</label>
+                                    <input type="text" class='form-control' value="{{ $istProj->data }}" name='contact_client' placeholder="Introduceti contactul clientului">
+                                </div>
                             @endforeach
                         </div>
                     </div>
