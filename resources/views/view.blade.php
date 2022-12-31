@@ -64,7 +64,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            @foreach ($istoric as $istProj)
+                            @forelse ($istoric as $istProj)
                                 <div class="mb-3">
                                     <table class='table'>
                                         <tr class="table-row-heads">
@@ -83,6 +83,11 @@
                                         </tr>
                                     </table>
                                 </div>
+                            @empty
+                                <div class="card-body">
+                                <h2>Nu au fost gasite inregistrari</h2>
+                                </div>
+                            @endforelse
                         </div>
                     </div>
                 </div>
@@ -96,36 +101,47 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
+                            <form action="{{ url('/') }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                
                                 <div class="mb-3">
                                     <label class="form-label">Id proiect</label>
-                                    <input type="text" class='form-control' value="{{ $proiecte->id }}" name='action_type' placeholder="Action Type">
+                                    <input type="text" class='form-control' value="{{ $proiecte->id }}" name='id_proiect' id='id_proiect' placeholder="Id proiect">
                                 </div>
 
                                 <div class="mb-3">
                                     <label class="form-label">Tip actiune</label>
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>Open this select menu</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                    <select class="form-select" aria-label="Default select example"  name='Status_Tranzactii'>
+                                        <option selected>Alege tipul actiunii (0 = cheltuiala, 1 = plata, 2 = incasare)</option>
+                                        <option value="cheltuiala">0</option>
+                                        <option value="plata">1</option>
+                                        <option value="incasare">2</option>
                                     </select>
                                 </div>
 
                                 <div class="mb-3">
                                     <label class="form-label">Colaborator</label>
-                                    <input type="text" class='form-control' value="{{ $istProj->colaborator_id }}" name='firma_client' placeholder="Introduceti firma clientului">
+                                    <select class="form-select" aria-label="Default select example" name="Colab_id">
+                                        <option selected>Alege colaboratorul (daca este cazul)</option>
+                                        @foreach ($colaborator as $colaboratori)
+                                        <option value="{{ $colaboratori->id }}">{{ $colaboratori->id }} </option>
+                                        @endforeach
+                                    </select>
+                                    
                                 </div>
 
                                 <div class="mb-3">
                                     <label class="form-label">Suma</label>
-                                    <input type="text" class='form-control' value="{{ $istProj->suma }}" name='reprezentant_firma' placeholder="Introduceti numele reprezentantului">
+                                    <input type="text" class='form-control' value="" name='suma' placeholder="Introduceti suma">
                                 </div>
 
                                 <div class="mb-3">
                                     <label class="form-label">Data</label>
-                                    <input type="text" class='form-control' value="{{ $istProj->data }}" name='contact_client' placeholder="Introduceti contactul clientului">
+                                    <input type="text" class='form-control' value="" name='data' placeholder="Introduceti data">
                                 </div>
-                            @endforeach
+                                <button type='submit' class='btn btn-primary' style="float: right;">Adauga</button>
+                            </form>
                         </div>
                     </div>
                 </div>

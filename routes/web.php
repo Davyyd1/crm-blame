@@ -34,3 +34,8 @@ Route::put('/home', [App\Http\Controllers\ShowController::class, 'update'])->nam
 
 Route::get('view/{id}', [App\Http\Controllers\ViewProjController::class, 'view'])->name('view');
 Route::put('view/{id}', [App\Http\Controllers\ViewProjController::class, 'updateProj'])->name('updateProj');
+Route::put('/', [App\Http\Controllers\ViewProjController::class, 'saveProjDet'])->name('saveProjDet');
+
+Route::get('colaboratori', function () {
+    return view('colaboratori');
+});
