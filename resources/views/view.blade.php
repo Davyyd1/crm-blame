@@ -64,7 +64,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            @forelse ($istoric as $istProj)
+                            @forelse ($ist as $istProj)
                                 <div class="mb-3">
                                     <table class='table'>
                                         <tr class="table-row-heads">
@@ -107,13 +107,12 @@
                                 
                                 <div class="mb-3">
                                     <label class="form-label">Id proiect</label>
-                                    <input type="text" class='form-control' value="{{ $proiecte->id }}" name='id_proiect' id='id_proiect' placeholder="Id proiect">
+                                    <input type="text" class='form-control' value="{{ $proiecte->id }}" name='id_proiect' id='id_proiect' placeholder="Id proiect" readonly>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label class="form-label">Tip actiune</label>
+                                    <label class="form-label">Tip actiune(0 = cheltuiala, 1 = plata, 2 = incasare)</label>
                                     <select class="form-select" aria-label="Default select example"  name='Status_Tranzactii'>
-                                        <option selected>Alege tipul actiunii (0 = cheltuiala, 1 = plata, 2 = incasare)</option>
                                         <option value="cheltuiala">0</option>
                                         <option value="plata">1</option>
                                         <option value="incasare">2</option>
@@ -123,7 +122,7 @@
                                 <div class="mb-3">
                                     <label class="form-label">Colaborator</label>
                                     <select class="form-select" aria-label="Default select example" name="Colab_id">
-                                        <option selected>Alege colaboratorul (daca este cazul)</option>
+                                        <option selected>Nu</option>
                                         @foreach ($colaborator as $colaboratori)
                                         <option value="{{ $colaboratori->id }}">{{ $colaboratori->id }} </option>
                                         @endforeach

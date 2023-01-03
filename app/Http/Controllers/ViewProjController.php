@@ -16,7 +16,8 @@ class ViewProjController extends Controller
         $proiecte = Proiecte::find($id);
         $istoric = IstoricProiecte::all();
         $colaborator = Colaboratori::all();
-        return view('view', compact('proiecte', 'istoric', 'colaborator'));
+        $ist = DB::table('IstoricProiecte')->select('IstoricProiecte.*')->join('Proiecte', 'id', '=', 'IstoricProiecte.id_proiect')->where('id', $id)->get();
+        return view('view', compact('proiecte', 'istoric', 'colaborator', 'ist'));
     }
 
     public function updateProj(Request $request, $id)
@@ -40,6 +41,6 @@ class ViewProjController extends Controller
         $istoric->suma = $request->suma;
         $istoric->data = $request->data;
         $istoric->save();
-        return redirect('/');
+        return back();
     }
 }
