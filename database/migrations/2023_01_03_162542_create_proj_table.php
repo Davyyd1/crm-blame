@@ -25,7 +25,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('istoric_proiecte', function (Blueprint $table) {
+        Schema::create('istoricproiecte', function (Blueprint $table) {
             $table->unsignedInteger('id_proiect');
             $table->string('action_type');
             $table->string('colaborator_id');
