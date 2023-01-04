@@ -38,6 +38,15 @@ return new class extends Migration
                 ->on('proiecte')
                 ->onDelete('cascade');
         });
+
+        Schema::create('colaboratori', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('Nume');
+            $table->string('Skillset');
+            $table->integer('Pret_h');
+            $table->integer('suma');
+            $table->timestamps();
+        });
     }
 
     /**
