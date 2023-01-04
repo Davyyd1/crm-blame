@@ -3,6 +3,39 @@
 <link rel="stylesheet" type="text/css" href="{{ url('css/main.css') }}">
 
 @section('content')
-
-
+<section class='my-2'>
+        <div class='container'>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-head">
+                                <h2>Colaboratori</h2><hr>
+                            </div>
+                            <table class="table">
+                                <tr class="table-row-heads">
+                                    <th>Id</th>
+                                    <th>Nume</th>
+                                    <th>Skillset</th>
+                                    <th>Pret_h</th>
+                                    <th>Suma</th>
+                                </tr>
+                                @foreach($colaborator as $colaboratori)
+                                <tr class="table-row-data"></tr>
+                                    <td>{{ $colaboratori->id }}</td>
+                                    <td>{{ $colaboratori->Nume }}</td>
+                                    <td>{{ $colaboratori->Skillset}}</td>
+                                    <td>{{ $colaboratori->Pret_h}}</td>
+                                    <td>{{ $colaboratori->suma }}</td>
+                                </tr> 
+                                @endforeach
+                            </table>
+                                {{ $colaborator->links('pagination::bootstrap-5') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 @endsection
+

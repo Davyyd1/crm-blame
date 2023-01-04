@@ -36,6 +36,4 @@ Route::get('view/{id}', [App\Http\Controllers\ViewProjController::class, 'view']
 Route::put('view/{id}', [App\Http\Controllers\ViewProjController::class, 'updateProj'])->name('updateProj');
 Route::put('/', [App\Http\Controllers\ViewProjController::class, 'saveProjDet'])->name('saveProjDet');
 
-Route::get('colaboratori', function () {
-    return view('colaboratori');
-});
+Route::get('colaboratori', [App\Http\Controllers\ColaboratoriController::class, 'viewColaboratori'])->name('viewColaboratori');
