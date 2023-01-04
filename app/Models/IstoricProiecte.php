@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -21,5 +22,10 @@ class IstoricProiecte extends Model
     public function Proiecte()
     {
         return $this->belongsTo(Proiecte::class);
+    }
+
+    public function setDataAttribute($value)
+    {
+        $this->attributes['data'] = Carbon::createFromFormat('m/d/Y', $value)->format('Y-m-d');
     }
 }

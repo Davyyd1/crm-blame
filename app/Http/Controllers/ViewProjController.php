@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Colaboratori;
 use Illuminate\Http\Request;
 use App\Models\Proiecte;
@@ -40,6 +41,12 @@ class ViewProjController extends Controller
         $istoric->colaborator_id = $request->Colab_id;
         $istoric->suma = $request->suma;
         $istoric->data = $request->data;
+        // $value = $request->data;
+        // $this->attributes['data'] = Carbon::createFromFormat('MM/DD/YY', $request->data)->format('YYYY-MM-DD');
+        // $this->attributes['data'] = Carbon::createFromFormat('m/d/Y', $value)->format('Y-m-d');
+        // if (!$request->data) {
+        //     $istoric->data = $istoric->created_at;
+        // }
         $istoric->save();
         return back();
     }
