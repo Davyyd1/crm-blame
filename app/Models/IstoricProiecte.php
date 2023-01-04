@@ -16,4 +16,10 @@ class IstoricProiecte extends Model
         'data'
     ];
     use HasFactory;
+
+    // un model(istoric proiecte) apartine proiect
+    public function Proiecte()
+    {
+        return $this->belongsTo(Proiecte::class);
+    }
 }

@@ -70,7 +70,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            @forelse ($ist as $istProj)
+                            {{-- @forelse ($istoric as $istProj)
                                 <div class="mb-3">
                                     <table class='table'>
                                         <tr class="table-row-heads">
@@ -86,6 +86,30 @@
                                             <td>{{ $istProj->colaborator_id }}</td>
                                             <td>{{ $istProj->suma }}</td>
                                             <td>{{ $istProj->data }}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            @empty
+                                <div class="card-body">
+                                <h2>Nu au fost gasite inregistrari</h2>
+                                </div>
+                            @endforelse --}}
+                            @forelse ($proiecte->istoricProiecte as $istProj)
+                                <div class="mb-3">
+                                    <table class='table'>
+                                        <tr class="table-row-heads">
+                                            <th>Id Proiect</th>
+                                            <th>Tip actiune </th>
+                                            <th>Colaborator </th>
+                                            <th>Suma </th>
+                                            <th>Data </th>
+                                        </tr>
+                                        <tr class="table-row-data">
+                                            <td>{{ $istProj->proiecte_id }}</td>
+                                            <td>{{ $istProj->action_type }}</td>
+                                            <td>{{ $istProj->colaborator_id }}</td>
+                                            <td>{{ $istProj->suma }}</td>
+                                            <td>{{ $istProj->created_at }}</td>
                                         </tr>
                                     </table>
                                 </div>

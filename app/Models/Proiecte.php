@@ -19,4 +19,9 @@ class Proiecte extends Model
         'Status_Proiect'
     ];
     use HasFactory;
+
+    public function istoricProiecte()
+    {
+        return $this->hasMany(istoricProiecte::class);
+    }
 }

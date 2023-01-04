@@ -26,13 +26,14 @@ return new class extends Migration
         });
 
         Schema::create('istoricproiecte', function (Blueprint $table) {
-            $table->unsignedInteger('id_proiect');
+            $table->increments('id');
+            $table->unsignedInteger('proiecte_id');
             $table->string('action_type');
             $table->string('colaborator_id');
             $table->integer('suma');
-            $table->date('data');
+            $table->date('data')->nullable();
             $table->timestamps();
-            $table->foreign('id_proiect')
+            $table->foreign('proiecte_id')
                 ->references('id')
                 ->on('proiecte')
                 ->onDelete('cascade');

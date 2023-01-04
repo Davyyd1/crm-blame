@@ -16,8 +16,8 @@ class ViewProjController extends Controller
         $proiecte = Proiecte::find($id);
         $istoric = IstoricProiecte::all();
         $colaborator = Colaboratori::all();
-        $ist = DB::table('IstoricProiecte')->select('IstoricProiecte.*')->join('Proiecte', 'id', '=', 'IstoricProiecte.id_proiect')->where('id', $id)->get();
-        return view('view', compact('proiecte', 'istoric', 'colaborator', 'ist'));
+        // $ist = DB::table('IstoricProiecte')->select('IstoricProiecte.*')->join('Proiecte', 'id', '=', 'IstoricProiecte.id_proiect')->where('id', $id)->get();
+        return view('view', compact('proiecte', 'istoric', 'colaborator'))->with('proiecte', $proiecte);
     }
 
     public function updateProj(Request $request, $id)
@@ -35,7 +35,7 @@ class ViewProjController extends Controller
 
     public function saveProjDet(Request $request, IstoricProiecte $istoric)
     {
-        $istoric->id_proiect = $request->input('id_proiect');
+        $istoric->proiecte_id = $request->input('id_proiect');
         $istoric->action_type = $request->Status_Tranzactii;
         $istoric->colaborator_id = $request->Colab_id;
         $istoric->suma = $request->suma;
