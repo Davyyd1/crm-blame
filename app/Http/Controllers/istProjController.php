@@ -19,4 +19,19 @@ class istProjController extends Controller
         // $ist = DB::table('IstoricProiecte')->select('IstoricProiecte.*')->join('Proiecte', 'id', '=', 'IstoricProiecte.id_proiect')->where('id', $id)->get();
         return view('istProj', compact('proiecte', 'istoric', 'colaborator', 'time'));
     }
+
+    public function updateIstProj(Request $request, $id)
+    {
+        $istoric = IstoricProiecte::find($id);
+        $istoric->action_type = $request->input('Status_Tranzactii');
+        $istoric->colaborator_id = $request->input('Colab_id');
+        $istoric->suma = $request->input('suma_proiect');
+        $istoric->data = $request->input('data');
+        $istoric->update();
+        return redirect('/home');
+    }
+
+    public function deleteIstProj($id)
+    {
+    }
 }

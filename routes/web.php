@@ -39,3 +39,5 @@ Route::put('/', [App\Http\Controllers\ViewProjController::class, 'saveProjDet'])
 Route::get('colaboratori', [App\Http\Controllers\ColaboratoriController::class, 'viewColaboratori'])->name('viewColaboratori');
 
 Route::get('istProj/{id}', [App\Http\Controllers\istProjController::class, 'viewIstProj'])->name('viewIstProj');
+
+Route::put('istProj/{id}', [App\Http\Controllers\istProjController::class, 'updateIstProj'])->name('updateIstProj');

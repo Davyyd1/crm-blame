@@ -74,6 +74,7 @@
                                 <div class="mb-3">
                                     <table class='table'>
                                         <tr class="table-row-heads">
+                                            <th>Id</th>
                                             <th>Id Proiect</th>
                                             <th>Tip actiune </th>
                                             <th>Colaborator </th>
@@ -81,6 +82,7 @@
                                             <th>Data </th>
                                         </tr>
                                         <tr class="table-row-data">
+                                            <td>{{ $istProj->id }}</td>
                                             <td>{{ $istProj->proiecte_id }}</td>
                                             <td>{{ $istProj->action_type }}</td>
                                             <td>{{ $istProj->colaborator_id }}</td>
@@ -139,7 +141,6 @@
                                         <option value="{{ $colaboratori->id }}">{{ $colaboratori->id }} </option>
                                         @endforeach
                                     </select>
-                                    
                                 </div>
 
                                 <div class="mb-3">
