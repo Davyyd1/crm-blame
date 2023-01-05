@@ -10,7 +10,8 @@ class IstoricProiecte extends Model
 {
     protected $table = 'IstoricProiecte';
     public $fillable = [
-        'id_proiect',
+        'id',
+        'proiecte_id',
         'action_type',
         'colaborator_id',
         'suma',

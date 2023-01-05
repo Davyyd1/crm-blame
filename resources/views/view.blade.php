@@ -86,9 +86,11 @@
                                             <td>{{ $istProj->colaborator_id }}</td>
                                             <td>{{ $istProj->suma }}</td>
                                             @if ( $istProj->data > 0 )
-                                               <td> {{ $istProj->data }} </td>
+                                               <td> {{ $istProj->data }} 
+                                            <a href="{{ url('istProj/'.$istProj->id) }}"><img src="{{ URL('storage/images/view48.jpg') }}" alt='view' style="margin-left:2rem;"></a></td>
                                             @else     
-                                            <td>{{ $istProj->created_at->format('d-m-Y') }}</td>
+                                            <td>{{ $istProj->created_at->format('d-m-Y') }}
+                                            <a href="{{ url('view') }}"><img src="{{ URL('storage/images/view48.jpg') }}" alt='view'></a></td>
                                             @endif
                                         </tr>
                                     </table>
