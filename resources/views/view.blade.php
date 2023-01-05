@@ -80,20 +80,29 @@
                                             <th>Colaborator </th>
                                             <th>Suma </th>
                                             <th>Data </th>
+                                            <th>Action</th>
                                         </tr>
                                         <tr class="table-row-data">
                                             <td>{{ $istProj->id }}</td>
                                             <td>{{ $istProj->proiecte_id }}</td>
-                                            <td>{{ $istProj->action_type }}</td>
+                                            @if ($istProj->action_type == 'plata')
+                                                <td style="color: red; font-weight:bold;">{{ $istProj->action_type }}</td>
+                                            @elseif ($istProj->action_type == 'cheltuiala')
+                                                <td style="color: rgb(87, 0, 0); font-weight:bold;">{{ $istProj->action_type }}</td>
+                                            @else
+                                                <td style="color: rgb(0, 92, 41); font-weight:bold;">{{ $istProj->action_type }}</td>
+                                            @endif
                                             <td>{{ $istProj->colaborator_id }}</td>
                                             <td>{{ $istProj->suma }}</td>
                                             @if ( $istProj->data > 0 )
-                                               <td> {{ $istProj->data }} 
-                                            <a href="{{ url('istProj/'.$istProj->id) }}"><img src="{{ URL('storage/images/view48.jpg') }}" alt='view' style="margin-left:2rem;"></a></td>
+                                            <td> {{ $istProj->data }} </td>
                                             @else     
                                             <td>{{ $istProj->created_at->format('d-m-Y') }}
-                                            <a href="{{ url('view') }}"><img src="{{ URL('storage/images/view48.jpg') }}" alt='view'></a></td>
                                             @endif
+                                            <td style="display: flex; justify-content:space-evenly; ">
+                                                <a href="{{ url('istProj/'.$istProj->id) }}" ><img src="{{ URL('storage/images/view48.jpg') }}" alt='view' height="45" width="45" ></a>
+                                                <a href="{{ url('delete/'.$istProj->id) }}"><img src="{{ URL('storage/images/trash64.png') }}" alt='view' height="45" width="45" ></a>
+                                            </td>
                                         </tr>
                                     </table>
                                 </div>

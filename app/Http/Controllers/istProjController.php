@@ -33,5 +33,8 @@ class istProjController extends Controller
 
     public function deleteIstProj($id)
     {
+        $istoric = IstoricProiecte::findOrFail($id);
+        $istoric->delete();
+        return back();
     }
 }

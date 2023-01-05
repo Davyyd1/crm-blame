@@ -41,3 +41,5 @@ Route::get('colaboratori', [App\Http\Controllers\ColaboratoriController::class, 
 Route::get('istProj/{id}', [App\Http\Controllers\istProjController::class, 'viewIstProj'])->name('viewIstProj');
 
 Route::put('istProj/{id}', [App\Http\Controllers\istProjController::class, 'updateIstProj'])->name('updateIstProj');
+
+Route::get('delete/{id}', [App\Http\Controllers\istProjController::class, 'deleteIstProj'])->name('deleteIstProj');
