@@ -149,7 +149,7 @@
                                     <label class="form-label">Data</label>
                                     {{-- <input type="text" class='form-control' value="" name='data' placeholder="Introduceti data"> --}}
                                     <div class="input-group date" data-provide="datepicker">
-                                        <input type="text" class="form-control" name='data' readonly>
+                                        <input type="text" class="form-control" name='data' value='{{ $time }}'readonly>
                                         <div class="input-group-addon">
                                             <span class="glyphicon glyphicon-th"></span>
                                         </div>

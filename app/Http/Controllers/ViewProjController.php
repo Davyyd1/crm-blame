@@ -17,8 +17,9 @@ class ViewProjController extends Controller
         $proiecte = Proiecte::find($id);
         $istoric = IstoricProiecte::all();
         $colaborator = Colaboratori::all();
+        $time = Carbon::now()->format('m/d/Y');
         // $ist = DB::table('IstoricProiecte')->select('IstoricProiecte.*')->join('Proiecte', 'id', '=', 'IstoricProiecte.id_proiect')->where('id', $id)->get();
-        return view('view', compact('proiecte', 'istoric', 'colaborator'));
+        return view('view', compact('proiecte', 'istoric', 'colaborator', 'time'));
     }
 
     public function updateProj(Request $request, $id)
