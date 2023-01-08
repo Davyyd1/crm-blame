@@ -2,11 +2,13 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="{{ url('css/main.css') }}">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     @section('content')
     <section class='my-2'>
@@ -92,7 +94,7 @@
                                             @else
                                                 <td style="color: rgb(0, 92, 41); font-weight:bold;">{{ $istProj->action_type }}</td>
                                             @endif
-                                            <td>{{ $istProj->colaborator_id }}</td>
+                                            <td>{{ $istProj->colaboratori_id }}</td>
                                             <td>{{ $istProj->suma }}</td>
                                             @if ( $istProj->data > 0 )
                                             <td> {{ $istProj->data }} </td>
@@ -101,7 +103,7 @@
                                             @endif
                                             <td style="display: flex; justify-content:space-evenly; ">
                                                 <a href="{{ url('istProj/'.$istProj->id) }}" ><img src="{{ URL('storage/images/view48.jpg') }}" alt='view' height="45" width="45" ></a>
-                                                <a href="{{ url('delete/'.$istProj->id) }}"><img src="{{ URL('storage/images/trash64.png') }}" alt='view' height="45" width="45" ></a>
+                                                <a href="{{ url('delete/'.$istProj->id) }}" onclick="return confirm('Esti sigur ca vrei sa stergi?')"><img src="{{ URL('storage/images/trash64.png') }}" alt='view' height="45" width="45" ></a>
                                             </td>
                                         </tr>
                                     </table>
@@ -176,9 +178,11 @@
         </div>
     </section>
 @endsection
+
 <script type="text/javascript">
     $(function(){
         $('#datepicker').datepicker();
     })
-    
 </script>
+
+

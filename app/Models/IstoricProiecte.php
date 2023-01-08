@@ -25,6 +25,11 @@ class IstoricProiecte extends Model
         return $this->belongsTo(Proiecte::class);
     }
 
+    public function Colaboratori()
+    {
+        return $this->hasMany(Colaboratori::class);
+    }
+
     public function setDataAttribute($value)
     {
         $this->attributes['data'] = Carbon::createFromFormat('m/d/Y', $value)->format('Y-m-d');

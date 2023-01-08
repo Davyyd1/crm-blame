@@ -19,6 +19,7 @@
                                     <th>Skillset</th>
                                     <th>Pret_h</th>
                                     <th>Suma</th>
+                                    <th>Suma totala</th>
                                 </tr>
                                 @foreach($colaborator as $colaboratori)
                                 <tr class="table-row-data"></tr>
@@ -26,11 +27,13 @@
                                     <td>{{ $colaboratori->Nume }}</td>
                                     <td>{{ $colaboratori->Skillset}}</td>
                                     <td>{{ $colaboratori->Pret_h}}</td>
-                                    <td>{{ $colaboratori->suma }}</td>
+                                    {{-- <td>{{ $data }}</td> --}}
+                                    <td>{{ $colaboratori->istoric_proiecte_sum_suma }}</td>
+                                    @endforeach
+                                    <td style="border: 2px solid black;">{{ $calc }}</td>
                                 </tr> 
-                                @endforeach
                             </table>
-                                {{ $colaborator->links('pagination::bootstrap-5') }}
+                                {{-- {{ $colaborator->links('pagination::bootstrap-5') }} --}}
                         </div>
                     </div>
                 </div>

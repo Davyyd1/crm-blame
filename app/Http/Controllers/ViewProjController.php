@@ -39,7 +39,7 @@ class ViewProjController extends Controller
     {
         $istoric->proiecte_id = $request->input('id_proiect');
         $istoric->action_type = $request->Status_Tranzactii;
-        $istoric->colaborator_id = $request->Colab_id;
+        $istoric->colaboratori_id = $request->Colab_id;
         $istoric->suma = $request->suma;
         $istoric->data = $request->data;
         $istoric->save();

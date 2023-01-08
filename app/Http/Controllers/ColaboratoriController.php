@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Colaboratori;
+use App\Models\IstoricProiecte;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ColaboratoriController extends Controller
 {
@@ -11,6 +13,16 @@ class ColaboratoriController extends Controller
     {
         $colaborator = Colaboratori::all();
         $colaborator = Colaboratori::paginate(10);
-        return view('colaboratori', compact('colaborator'));
+        $colaborator = Colaboratori::withSum('IstoricProiecte', 'suma')->get();
+        $calc = DB::table('IstoricProiecte')->sum('suma');
+        // $data = IstoricProiecte::where('colaborator_id', 2)->sum('suma');
+        // dd($colaborator->toArray());
+        // dd($data);
+        // $data = Colaboratori::select('id')->withSum('IstoricProiecte', 'suma')->get();
+        // $colab = Colaboratori::find($id);
+        // $totalAmount = $colab->IstoricProiecte()
+        //     ->where('colaborator_id', $id)
+        //     ->sum('suma');
+        return view('colaboratori', compact('colaborator', 'calc'));
     }
 }
