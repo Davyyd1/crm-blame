@@ -43,6 +43,7 @@ class ViewProjController extends Controller
         $istoric->suma = $request->suma;
         $istoric->data = $request->data;
         $istoric->save();
+        DB::update('UPDATE Colaboratori SET suma = ? WHERE id=?', [$istoric->suma, $istoric->colaboratori_id]);
         return back();
     }
 }

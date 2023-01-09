@@ -29,7 +29,11 @@
                                     <td>{{ $colaboratori->Skillset}}</td>
                                     <td>{{ $colaboratori->Pret_h}}</td>
                                     {{-- <td>{{ $data }}</td> --}}
-                                    <td>{{ $colaboratori->istoric_proiecte_sum_suma.' Lei' }}</td>
+                                    @if ($colaboratori->istoric_proiecte_sum_suma > 0)
+                                        <td>{{ $colaboratori->istoric_proiecte_sum_suma.' Lei' }}</td>
+                                    @else
+                                        <td>{{ '0 Lei' }}</td>
+                                    @endif
                                     <td><input type="text" value="" name='introduSuma' placeholder="Suma">
                                     <a href="{{ url('realizeazaplata') }}" ><button type="submit" class="btn btn-primary">Realizeaza plata</button></a> 
                                     </td>
