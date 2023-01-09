@@ -43,3 +43,5 @@ Route::get('istProj/{id}', [App\Http\Controllers\istProjController::class, 'view
 Route::put('istProj/{id}', [App\Http\Controllers\istProjController::class, 'updateIstProj'])->name('updateIstProj');
 
 Route::get('delete/{id}', [App\Http\Controllers\istProjController::class, 'deleteIstProj'])->name('deleteIstProj');
+
+Route::get('realizeazaplata', [App\Http\Controllers\ColaboratoriController::class, 'realizeazaPlata'])->name('realizeazaPlata');

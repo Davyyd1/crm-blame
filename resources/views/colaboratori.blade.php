@@ -31,7 +31,7 @@
                                     {{-- <td>{{ $data }}</td> --}}
                                     <td>{{ $colaboratori->istoric_proiecte_sum_suma.' Lei' }}</td>
                                     <td><input type="text" value="" name='introduSuma' placeholder="Suma">
-                                    <a href="{{ url('') }}" ><button type="submit" class="btn btn-primary">Realizeaza plata</button></a> 
+                                    <a href="{{ url('realizeazaplata') }}" ><button type="submit" class="btn btn-primary">Realizeaza plata</button></a> 
                                     </td>
                                     @endforeach
                                     <td style="border: 2px solid black;">{{ $calc.' Lei' }}</td>
