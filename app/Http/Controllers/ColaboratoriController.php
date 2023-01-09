@@ -12,8 +12,8 @@ class ColaboratoriController extends Controller
     public function viewColaboratori()
     {
         $colaborator = Colaboratori::all();
-        $colaborator = Colaboratori::paginate(10);
         $colaborator = Colaboratori::withSum('IstoricProiecte', 'suma')->get();
+        $colaboratorPaginare = Colaboratori::paginate(10);
         $calc = DB::table('IstoricProiecte')->sum('suma');
         // $data = IstoricProiecte::where('colaborator_id', 2)->sum('suma');
         // dd($colaborator->toArray());
@@ -23,6 +23,6 @@ class ColaboratoriController extends Controller
         // $totalAmount = $colab->IstoricProiecte()
         //     ->where('colaborator_id', $id)
         //     ->sum('suma');
-        return view('colaboratori', compact('colaborator', 'calc'));
+        return view('colaboratori', compact('colaborator', 'calc', 'colaboratorPaginare'));
     }
 }

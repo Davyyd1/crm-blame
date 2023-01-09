@@ -19,6 +19,7 @@
                                     <th>Skillset</th>
                                     <th>Pret_h</th>
                                     <th>Suma</th>
+                                    <th>Retragere</th>
                                     <th>Suma totala</th>
                                 </tr>
                                 @foreach($colaborator as $colaboratori)
@@ -28,12 +29,15 @@
                                     <td>{{ $colaboratori->Skillset}}</td>
                                     <td>{{ $colaboratori->Pret_h}}</td>
                                     {{-- <td>{{ $data }}</td> --}}
-                                    <td>{{ $colaboratori->istoric_proiecte_sum_suma }}</td>
+                                    <td>{{ $colaboratori->istoric_proiecte_sum_suma.' Lei' }}</td>
+                                    <td><input type="text" value="" name='introduSuma' placeholder="Suma">
+                                    <a href="{{ url('') }}" ><button type="submit" class="btn btn-primary">Realizeaza plata</button></a> 
+                                    </td>
                                     @endforeach
-                                    <td style="border: 2px solid black;">{{ $calc }}</td>
+                                    <td style="border: 2px solid black;">{{ $calc.' Lei' }}</td>
                                 </tr> 
                             </table>
-                                {{-- {{ $colaborator->links('pagination::bootstrap-5') }} --}}
+                                {{ $colaboratorPaginare->links('pagination::bootstrap-5') }}
                         </div>
                     </div>
                 </div>
