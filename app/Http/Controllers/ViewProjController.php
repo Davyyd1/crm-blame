@@ -35,15 +35,18 @@ class ViewProjController extends Controller
         return redirect('/home');
     }
 
-    public function saveProjDet(Request $request, IstoricProiecte $istoric)
+    public function saveProjDet(Request $request, IstoricProiecte $istoric, Colaboratori $colaborator)
     {
         $istoric->proiecte_id = $request->input('id_proiect');
         $istoric->action_type = $request->Status_Tranzactii;
         $istoric->colaboratori_id = $request->Colab_id;
-        $istoric->suma = $request->suma;
+        if ($request->input('Status_Tranzactii') === 'incasare') {
+            $istoric->suma = $request->input('suma');
+        } else {
+            $istoric->suma = $request->input('suma') * -1;
+        }
         $istoric->data = $request->data;
         $istoric->save();
-        DB::update('UPDATE Colaboratori SET suma = ? WHERE id=?', [$istoric->suma, $istoric->colaboratori_id]);
         return back();
     }
 }

@@ -19,25 +19,36 @@
                                     <th>Skillset</th>
                                     <th>Pret_h</th>
                                     <th>Suma</th>
-                                    <th>Retragere</th>
+                                    <th>Status</th>
+                                    <th>Realizeaza plata</th>
                                     <th>Suma totala</th>
                                 </tr>
+
                                 @foreach($colaborator as $colaboratori)
                                 <tr class="table-row-data"></tr>
                                     <td>{{ $colaboratori->id }}</td>
                                     <td>{{ $colaboratori->Nume }}</td>
                                     <td>{{ $colaboratori->Skillset}}</td>
                                     <td>{{ $colaboratori->Pret_h}}</td>
-                                    {{-- <td>{{ $data }}</td> --}}
-                                    @if ($colaboratori->istoric_proiecte_sum_suma > 0)
+                                    
+                                    @if ($colaboratori->istoric_proiecte_sum_suma)
                                         <td>{{ $colaboratori->istoric_proiecte_sum_suma.' Lei' }}</td>
                                     @else
                                         <td>{{ '0 Lei' }}</td>
                                     @endif
-                                    <td><input type="text" value="" name='introduSuma' placeholder="Suma">
-                                    <a href="{{ url('realizeazaplata') }}" ><button type="submit" class="btn btn-primary">Realizeaza plata</button></a> 
+
+                                    @if ($colaboratori->istoric_proiecte_sum_suma < 0 || $colaboratori->istoric_proiecte_sum_suma > 0)
+                                        <td>Neachitat</td>
+                                    @else
+                                        <td>Achitat</td>
+                                    @endif
+
+                                    <td>
+                                        <input type="text" value="" name='introduSuma' placeholder="Suma">
+                                        <a href="{{ url('realizeazaplata') }}" ><button type="submit" class="btn btn-primary">Realizeaza plata</button></a> 
                                     </td>
                                     @endforeach
+
                                     <td style="border: 2px solid black;">{{ $calc.' Lei' }}</td>
                                 </tr> 
                             </table>

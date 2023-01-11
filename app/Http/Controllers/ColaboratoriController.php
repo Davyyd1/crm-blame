@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class ColaboratoriController extends Controller
 {
-    public function viewColaboratori(Colaboratori $colaborator, Request $request)
+    public function viewColaboratori(Colaboratori $colaborator, Request $request, IstoricProiecte $istoric)
     {
         $colaborator = Colaboratori::all();
         $colaborator = Colaboratori::withSum('IstoricProiecte', 'suma')->get();
@@ -22,7 +22,6 @@ class ColaboratoriController extends Controller
     {
         $colaborator = Colaboratori::findOrFail($id);
         $suma = $request->input('introduSuma');
-
         return back();
     }
 }
