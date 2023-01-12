@@ -10,6 +10,7 @@ class Colaboratori extends Model
     protected $table = 'Colaboratori';
     use HasFactory;
 
+
     public function IstoricProiecte()
     {
         return $this->hasMany(IstoricProiecte::class);

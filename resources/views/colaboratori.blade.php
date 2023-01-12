@@ -43,12 +43,15 @@
                                         <td>Achitat</td>
                                     @endif
 
+                                   <form action="{{ url('colaboratori/'.$colaboratori->id) }}" method="POST">
+                                    @csrf
+                                    @method('put')
                                     <td>
-                                        <input type="text" value="" name='introduSuma' placeholder="Suma">
-                                        <a href="{{ url('realizeazaplata') }}" ><button type="submit" class="btn btn-primary">Realizeaza plata</button></a> 
+                                    <input type="text" name='introduSuma' placeholder="Suma">
+                                    <button type="submit" class="btn btn-primary">Realizeaza plata</button>
                                     </td>
+                                    </form>
                                     @endforeach
-
                                     <td style="border: 2px solid black;">{{ $calc.' Lei' }}</td>
                                 </tr> 
                             </table>

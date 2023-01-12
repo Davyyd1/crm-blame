@@ -18,10 +18,15 @@ class ColaboratoriController extends Controller
         return view('colaboratori', compact('colaborator', 'calc', 'colaboratorPaginare'));
     }
 
-    public function realizeazaPlata(Request $request, $id)
+    public function realizeazaPlata($id, Request $request, IstoricProiecte $istoric)
     {
-        $colaborator = Colaboratori::findOrFail($id);
-        $suma = $request->input('introduSuma');
+        $suma = $request->input('introduSuma') + 0;
+        DB::table('IstoricProiecte')->insert([
+            'action_type' => 'plata',
+            'colaboratori_id' => $id,
+            'suma' => $suma,
+            'data' => '2023-01-12'
+        ]);
         return back();
     }
 }
