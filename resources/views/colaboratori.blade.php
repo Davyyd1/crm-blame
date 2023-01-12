@@ -31,14 +31,18 @@
                                     <td>{{ $colaboratori->Skillset}}</td>
                                     <td>{{ $colaboratori->Pret_h}}</td>
                                     
-                                    @if ($colaboratori->istoric_proiecte_sum_suma)
+                                    @if ($colaboratori->istoric_proiecte_sum_suma > 0)
+                                        <td>{{ '+'.$colaboratori->istoric_proiecte_sum_suma.' Lei' }}</td>
+                                    @elseif ($colaboratori->istoric_proiecte_sum_suma < 0)
                                         <td>{{ $colaboratori->istoric_proiecte_sum_suma.' Lei' }}</td>
                                     @else
                                         <td>{{ '0 Lei' }}</td>
                                     @endif
 
-                                    @if ($colaboratori->istoric_proiecte_sum_suma < 0 || $colaboratori->istoric_proiecte_sum_suma > 0)
+                                    @if ($colaboratori->istoric_proiecte_sum_suma < 0)
                                         <td>Neachitat</td>
+                                    @elseif ($colaboratori->istoric_proiecte_sum_suma > 0)
+                                        <td>Platit</td>
                                     @else
                                         <td>Achitat</td>
                                     @endif

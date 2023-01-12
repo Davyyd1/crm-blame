@@ -88,11 +88,11 @@
                         <li><a href="{{ url('admin/proiecte') }}" id='link-proiecte'>Admin</a></li>
                         <li><a href="{{ url('home') }}" id='link-proiecte'>Proiecte user</a></li>
                         <li><a href="{{ url('colaboratori') }}" id='link-proiecte'>Colaboratori</a></li>
-                        <li><a href="{{ url('') }}" id='link-proiecte'>Grafic</a></li>
+                        <li><a href="{{ url('statistici') }}" id='link-proiecte'>Statistici</a></li>
                         @elseif(Auth::check())
                         <li><a href="#" id='link-proiecte'>Proiecte user</a></li>
                         <li><a href="{{ url('colaboratori') }}" id='link-proiecte'>Colaboratori</a></li>
-                        <li><a href="#" id='link-proiecte'>Grafic</a></li>
+                        <li><a href="{{ url('statistici') }}" id='link-proiecte'>Statistici</a></li>
                         <li><a href="#" id='link-proiecte'>free space(fill)</a></li>
                     </div>
                     @endif
