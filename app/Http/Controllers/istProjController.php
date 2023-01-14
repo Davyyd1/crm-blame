@@ -24,7 +24,7 @@ class istProjController extends Controller
     {
         $istoric = IstoricProiecte::find($id);
         $istoric->action_type = $request->input('Status_Tranzactii');
-        $istoric->colaborator_id = $request->input('Colab_id');
+        $istoric->colaboratori_id = $request->input('Colab_id');
         $istoric->suma = $request->input('suma_proiect');
         $istoric->data = $request->input('data');
         $istoric->update();

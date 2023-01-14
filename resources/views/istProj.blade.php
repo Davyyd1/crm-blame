@@ -44,7 +44,7 @@
                                 <div class="mb-3">
                                     <label class="form-label">Colaborator id</label>
                                     <select class="form-select" aria-label="Default select example" name="Colab_id">
-                                        <option selected>{{ $istoric->colaborator_id }}</option>
+                                        <option selected>{{ $istoric->colaboratori_id }}</option>
                                         @foreach ($colaborator as $colaboratori)
                                         <option value="{{ ($colaboratori->id) }}">{{ $colaboratori->id}} </option>
                                         @endforeach
