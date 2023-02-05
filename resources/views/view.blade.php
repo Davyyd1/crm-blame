@@ -58,6 +58,7 @@
                                     <input type="text" class='form-control' name='Status_Proiect' placeholder="introduceti numarul transelor">
                                 </div> --}}
                                 <button type='submit' class='btn btn-primary' style="float: right;">Actualizeaza date</button>
+                                <a href="{{ url('download/'.$proiecte->id) }}"><img src="{{ URL('storage/images/download.png') }}" alt='view' height="35" style="float:right; margin-right:1.5rem;"></a>
                             </form>
                         </div>
                     </div>

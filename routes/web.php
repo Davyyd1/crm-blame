@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShowController;
 
+use Dompdf\Adapter\PDFLib;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,3 +49,5 @@ Route::get('delete/{id}', [App\Http\Controllers\istProjController::class, 'delet
 Route::put('colaboratori/{id}', [App\Http\Controllers\ColaboratoriController::class, 'realizeazaPlata'])->name('realizeazaPlata');
 
 Route::get('statistici', [App\Http\Controllers\StatisticiController::class, 'viewStatistici'])->name('viewStatistici');
+
+Route::get('download/{id}', [App\Http\Controllers\DescarcaController::class, 'descarca'])->name('descarca');
